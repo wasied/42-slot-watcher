@@ -1,5 +1,9 @@
 # 42_slot_watcher
-A simple node.js corrections slots watcher for 42, **only on Windows**.  
+A simple node.js corrections slots watcher for 42, **only on Windows** atm.  
+
+### What is this
+I was bored of having to refresh the page every 10 seconds to find for correction slots and hoping to be the first one to claim it.
+You probably know what I'm talking about if you are a 42 student... so I made this script to alert us when a new slot is available.  
 You will receive desktop notifications as soon as new slots has been detected.
 
 ### Installation
