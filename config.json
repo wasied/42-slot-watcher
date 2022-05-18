@@ -1,7 +1,7 @@
 {
-    "session_production": "fa70f8deec9d49488e585f5fa4e368df",
-    "project_id": "42cursus-push_swap",
-    "team_id": "4134397",
+    "session_production": "your_session_production",
+    "project_id": "project_string_id",
+    "team_id": "team_number_id",
     "cooldown": 30,
     "nextDaysLimit": 1
 }
