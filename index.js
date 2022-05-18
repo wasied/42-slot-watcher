@@ -107,11 +107,11 @@ async function getRemoteSlots(session, project_id, team_id, next_days, cooldown)
 // Start function - creating the interval
 function start() {
     if (!config.session_production || config.session_production.length == 0)
-        return console.log("Please add your session cookie to the config.json file. Read README.md for details.");
+        return console.error("Please add your session cookie to the config.json file. Read README.md for details.");
     if (!config.project_id || config.project_id.length == 0)
-        return console.log("Please add your project id to the config.json file. Read README.md for details.");
+        return console.error("Please add your project id to the config.json file. Read README.md for details.");
     if (!config.team_id || config.team_id.length == 0)
-        return console.log("Please add your team id to the config.json file. Read README.md for details.");
+        return console.error("Please add your team id to the config.json file. Read README.md for details.");
 
     fs.unlink("temp.data", () => {});
     console.log("\x1b[31m42 slots watcher is running... Get some rest!\x1b[0m");
@@ -120,4 +120,9 @@ function start() {
         getRemoteSlots(config.session_production, config.project_id, config.team_id, config.nextDaysLimit || 1, config.cooldown);
     }, (config.cooldown || 30) * 1000);
 }
-start();
+
+// Launch the program only on Windows
+if (process.platform === "win32")
+    start();
+else
+    console.error(`You need to be under Windows in order to run this program!\nYour operating system has been detected as: ${process.platform}`)
