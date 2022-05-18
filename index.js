@@ -121,8 +121,5 @@ function start() {
     }, (config.cooldown || 30) * 1000);
 }
 
-// Launch the program only on Windows
-if (process.platform === "win32")
-    start();
-else
-    console.error(`You need to be under Windows in order to run this program!\nYour operating system has been detected as: ${process.platform}`)
+// Launch the program
+start();
