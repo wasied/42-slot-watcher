@@ -1,0 +1,16 @@
+{
+  "name": "42_slot_watcher",
+  "version": "1.0.0",
+  "description": "A 42 slot watcher in NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MaaxIT",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "fs": "^0.0.1-security",
+    "node-notifier": "^10.0.1"
+  }
+}
