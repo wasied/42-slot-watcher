@@ -4,7 +4,7 @@
   "description": "A 42 slot watcher in NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prod": "npm i && node ./index.js"
   },
   "author": "MaaxIT",
   "license": "ISC",
