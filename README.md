@@ -6,10 +6,24 @@ I was bored of having to refresh the page every 10 seconds to find for correctio
 You probably know what I'm talking about if you are a 42 student... so I made this script to alert us when a new slot is available.  
 You will receive desktop notifications as soon as new slots has been detected.
 
+---
+
 ### Installation
 1. Clone the repository : ``git clone https://github.com/MaaxIT/42_slot_watcher``
 2. Open the **config.json** file and your own values **(see below for configuration steps)**
-3. Run ``node .`` and here you go, you can take a rest!
+3. If you don't have installed npm/nodejs yet, please follow the instructions below and come back here when you're done.
+4. Run ``npm run prod`` and here you go, you can take a rest!
+
+### Install NodeJS from Homebrew
+***Warning:** If you're using this on Windows, please use Google to learn how to install nodejs/npm. Don't follow this.*
+1. Run ``brew --version`` to make sure you have homebrew installed on your computer.  
+    If you are on a 42 session, use [**this repository**](https://github.com/kube/42homebrew) to install homebrew.  
+    Otherwise, please follow [**this tutorial**](https://phoenixnap.com/kb/install-homebrew-on-mac) that will learn you to install homebrew step-by-step.
+2. Run ``brew update`` to make sure Homebrew is up-to-date.
+3. Run ``brew install node`` to install NodeJS & npm.
+4. Run ``npm --v`` and ``node -v`` to make sure the installation was successfull.
+
+---
 
 ### Configuration
 1. Connect to the intra, press F12 to open your console, go the "Application" tab and scroll down to the "Cookies" category.
