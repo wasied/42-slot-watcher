@@ -3,6 +3,9 @@ const fs = require("fs");
 const { notify } = require("node-notifier");
 const config = require("./config.json");
 
+// Store the main timer
+let checkTimer;
+
 // Backup data we received
 function backupData(new_data) {
     new_data.forEach(slot => {
@@ -58,13 +61,27 @@ function getFormattedDate(days_offset) {
 async function getRemoteSlots(session, project_id, team_id, next_days, cooldown) {
     const start = getFormattedDate(0);
     const end = getFormattedDate(next_days);
-    
+    let res;
+
     const headers = {
         "Cookie": `_intra_42_session_production=${session}`
     };
 
-    const res = await axios.get(`https://projects.intra.42.fr/projects/${project_id}/slots.json?team_id=${team_id}&start=${start}&end=${end}`, { headers: headers });
-    if (!res) return;
+
+    try {
+
+        res = await axios.get(`https://projects.intra.42.fr/projects/${project_id}/slots.json?team_id=${team_id}&start=${start}&end=${end}`, { headers: headers });
+        if (!res) return;
+    
+    } catch(err) {
+
+        if (checkTimer)
+            clearInterval(checkTimer);
+
+        console.log(`\n\x1b[31mSeems like the access to the page has been refused.\nPlease relaunch the program if this is not the case.\n\nThanks for using my tool! :)\x1b[0m`);
+        return;
+
+    }
     
     let data = res.data;
     if (!data) return;
@@ -116,7 +133,7 @@ function start() {
     fs.unlink("temp.data", () => {});
     console.log("\x1b[31m42 slots watcher is running... Get some rest!\x1b[0m");
 
-    setInterval(() => {
+    checkTimer = setInterval(() => {
         getRemoteSlots(config.session_production, config.project_id, config.team_id, config.nextDaysLimit || 1, config.cooldown);
     }, (config.cooldown || 30) * 1000);
 }
