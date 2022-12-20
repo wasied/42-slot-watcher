@@ -1,4 +1,4 @@
-# 42_slot_watcher
+# 42-slot-watcher
 A simple node.js corrections slots watcher for 42, working on **Windows - MacOS - Linux**. 
 
 ### What is this
@@ -9,7 +9,7 @@ You will receive desktop notifications as soon as new slots has been detected.
 ---
 
 ### Installation
-1. Clone the repository : ``git clone https://github.com/MaaxIT/42_slot_watcher``
+1. Clone the repository : ``git clone https://github.com/MaaxIT/42-slot-watcher``
 2. Open the **config.json** file and your own values **(see below for configuration steps)**
 3. If you don't have installed npm/nodejs yet, please follow the instructions below and come back here when you're done.
 4. Run ``npm run prod`` and here you go, you can take a rest!
